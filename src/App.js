@@ -9,6 +9,7 @@ class App extends Component {
 
   state = {
       modalIsopen: false,
+      showBlock: false,
   }
 
   showModal = () => {
@@ -22,8 +23,10 @@ class App extends Component {
     return (
       <div className="App">
         <h1>React Animations</h1>
-        <Modal show={this.state.modalIsopen} closed={this.closeModal}  />
-        <Backdrop show={this.state.modalIsopen} />
+        <button>Toggel</button>
+        {this.state.showBlock && <div></div> }
+        {this.state.modalIsopen && <Modal closed={this.closeModal}  />}
+        {this.state.modalIsopen && <Backdrop  />}
         <button onClick={this.showModal} className="Button">Open Modal</button>
         <h3>Animating Lists</h3>
         <List />
